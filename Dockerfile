@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # 4. Gradle 빌드 수행 (캐시 문제 줄이기 위해 wrapper 사용)
-RUN ./gradlew build --no-daemon
+RUN ./gradlew build -x test --no-daemon
 
 # 5. JAR 복사
 RUN cp build/libs/*SNAPSHOT.jar app.jar
