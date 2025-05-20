@@ -14,7 +14,12 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/sign")
-@CrossOrigin(origins = "https://sonsation.netlify.app")
+@CrossOrigin(origins = {
+        "https://sonsation.netlify.app", // 프론트 배포 도메인
+        "http://localhost:5173",  // 예: 로컬 개발용
+        "https://example.com"     // 추가 허용할 도메인
+})
+
 public class SignController {
     private final SignService signService;
 
